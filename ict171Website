@@ -1,108 +1,1239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposed Project</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 40px;
-            background-color: #f9f9f9;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        ul {
-            margin-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Auntie’s Clothing Hire</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+:root {
+  --primary: #D4AF37;
+  --dark: #0b0b0b;
+  --light: #ffffff;
+  --muted: #bbbbbb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, #222 0, #000 55%);
+  color: var(--light);
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 32px;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a {
+  color: var(--light);
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* LAYOUT HELPERS */
+.section {
+  padding: 60px 20px;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 28px;
+}
+
+/* HERO */
+.hero {
+  padding: 80px 20px 60px;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 34px;
+  margin: 0 0 14px;
+  color: var(--primary);
+}
+
+.hero-text h2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.hero-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  font-size: 14px;
+  color: var(--light);
+}
+
+.hero-bullets li::before {
+  content: "• ";
+  color: var(--primary);
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #000;
+  box-shadow: 0 0 18px rgba(212,175,55,0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 26px rgba(212,175,55,0.7);
+}
+
+.btn-outline:hover {
+  background: rgba(212,175,55,0.1);
+}
+
+.hero-image {
+  border-radius: 18px;
+  border: 1px solid rgba(212,175,55,0.5);
+  overflow: hidden;
+  position: relative;
+  min-height: 260px;
+  background: radial-gradient(circle at top, #333 0, #000 60%);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.1);
+}
+
+/* DRESSES CAROUSEL */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(212,175,55,0.4);
+  background: #111;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.carousel-item {
+  min-width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(212,175,55,0.6);
+}
+
+.dress-info-title {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.dress-meta {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.dress-desc {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.6);
+  color: var(--primary);
+}
+
+.carousel-controls {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.carousel-btn {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.6);
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.7);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--primary);
+  margin: 0 10px;
+}
+
+/* REVIEWS */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.review-card {
+  background: rgba(10,10,10,0.9);
+  border-radius: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(212,175,55,0.3);
+  font-size: 14px;
+}
+
+.review-name {
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 13px;
+}
+
+/* ABOUT */
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.about-card {
+  background: rgba(10,10,10,0.9);
+  border-radius: 16px;
+  padding: 20px 22px;
+  border: 1px solid rgba(212,175,55,0.3);
+  font-size: 14px;
+}
+
+.about-highlight {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 26px;
+}
+
+.contact-card {
+  background: rgba(10,10,10,0.9);
+  border-radius: 16px;
+  padding: 20px 22px;
+  border: 1px solid rgba(212,175,55,0.3);
+  font-size: 14px;
+}
+
+.contact-card a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-pill {
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.5);
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 18px;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid rgba(212,175,55,0.25);
+  background: #050505;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-inner,
+  .carousel-item,
+  .about-layout,
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hero {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 10px 16px;
+  }
+  .hero-text h1 {
+    font-size: 26px;
+  }
+}
+</style>
 </head>
 <body>
-<body style ="background-color: lightblue;">
-<div class="section">
 
-    <h>Student Name and ID </h>
-    <p>
-	Jamie Skelin 35202149 : Monday Lab 1:30-3:30
-	
-    </p>
-    <h1>Description of Proposed Project</h1>
-    <p>
-        My auntie owns a clothes hiring business, and I would like to create a website for her. 
-        She has struggled to create her own, as template websites such as Shopify make it difficult 
-        to hire out products. Furthermore, many potential customers are often confused by having to 
-        contact her business directly through Instagram. By creating a website, it would not only 
-        reduce her workload but also increase her business’ outreach to customers.
-    </p>
+<header>
+  <div class="logo">Auntie’s Clothing Hire</div>
+  <nav>
+    <a href="#dresses">Dresses</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <p>The website will contain many key elements:</p>
-    <ul>
-        <li>Landing page</li>
-        <li>Product display featuring an option to book try-ons</li>
-        <li>Contact section including email, Facebook, Instagram, and other social media</li>
-        <li>
-            Detailed product pages:
-            <ul>
-                <li>Available sizes and colours</li>
-                <li>Description of the item</li>
-                <li>Suggested occasions</li>
-                <li>Customer reviews</li>
-            </ul>
-        </li>
-        <li>A page dedicated to positive reviews</li>
-        <li>Pop-ups for current sales or promotions</li>
-        <li>General business location information</li>
-        <li>
-            About Us page:
-            <ul>
-                <li>The story of how the company was created</li>
-                <li>Its mission: affordable hiring, helping people feel special, and reducing clothing waste</li>
-            </ul>
-        </li>
-        <li>
-            Booking system:
-            <ul>
-                <li>Customers can book multiple clothing items</li>
-                <li>A timetable showing available dates</li>
-                <li>Optional email reminders 24 hours before booking</li>
-            </ul>
-        </li>
-        <li>
-            Booking confirmation:
-            <ul>
-                <li>Terms and conditions provided</li>
-                <li>Email sent to confirm booking details</li>
-                <li>Instructions on clothing care and returns</li>
-            </ul>
-        </li>
-    </ul>
-</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Hire stunning outfits without the stress of DMs.</h1>
+      <h2>Affordable hire • Feel special • Reduce waste</h2>
+      <ul class="hero-bullets">
+        <li>Clear sizes, colours, and fit notes.</li>
+        <li>Real customer reviews so you know what to expect.</li>
+        <li>Reduce clothing waste by hiring, not buying.</li>
+      </ul>
+      <div class="hero-cta">
+        <a href="#dresses" class="btn btn-primary">Browse dresses</a>
+        <a href="#contact" class="btn btn-outline">Contact & bookings</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <!-- Replace hero.jpg with your own hero image in the same folder -->
+      <img src="hero.jpg" alt="Elegant dress and heels">
+    </div>
+  </div>
+</section>
 
-<div class="section">
-    <h2>Rationale for Licence</h2>
-    <p>
-        The type of copyright licence that would be used is a proprietary licence. This means that 
-        my auntie and I would be the sole owners of the licence, and only authorised individuals 
-        would be allowed to use or modify the website, its content, and its code.
-    </p>
-    <p>
-        By using a proprietary licence, we maintain full control over how the website is distributed 
-        and managed.
-    </p>
+<!-- DRESSES CAROUSEL -->
+<section class="section" id="dresses">
+  <div class="section-inner">
+    <h2 class="section-title">Featured Dresses</h2>
 
-    <p>
-	Copyright notice: Jamie Skelin & DusktillDawn Hire 2026. All Rights Reserved.    
-</p>
-</div>
+    <div class="carousel" id="dressCarousel">
+      <div class="carousel-track">
+        <!-- Slide 1 -->
+        <div class="carousel-item">
+          <img src="dresses/dress1.jpg" alt="Blush Satin Gown">
+          <div>
+            <div class="dress-info-title">Blush Satin Gown</div>
+            <div class="dress-meta">Sizes: 8–12 • Perfect for: School balls, formal events</div>
+            <p class="dress-desc">
+              A soft blush satin gown with a flattering drape and subtle shine. Ideal for formal events where you want to feel elegant but comfortable.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Blush</span>
+              <span class="tag">Formal</span>
+              <span class="tag">Floor length</span>
+            </div>
+            <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Enquire about this dress
+            </button>
+          </div>
+        </div>
 
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"096b4d38d26c4ac8a7acc7950b86329c","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <img src="dresses/dress2.jpg" alt="Emerald Wrap Dress">
+          <div>
+            <div class="dress-info-title">Emerald Wrap Dress</div>
+            <div class="dress-meta">Sizes: 10–16 • Perfect for: Weddings, cocktail nights</div>
+            <p class="dress-desc">
+              A rich emerald wrap dress that suits a range of body types. Adjustable waist tie and floaty skirt make it a go‑to for weddings and special dinners.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Emerald</span>
+              <span class="tag">Midi</span>
+              <span class="tag">Wrap style</span>
+            </div>
+            <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Enquire about this dress
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <img src="dresses/dress3.jpg" alt="Black Satin Slip">
+          <div>
+            <div class="dress-info-title">Black Satin Slip</div>
+            <div class="dress-meta">Sizes: 6–14 • Perfect for: Birthdays, nights out</div>
+            <p class="dress-desc">
+              A classic black satin slip that can be dressed up or down. Pair with heels and jewellery for a timeless, effortless look.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Black</span>
+              <span class="tag">Slip</span>
+              <span class="tag">Versatile</span>
+            </div>
+            <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Enquire about this dress
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevDress">&#10094;</button>
+        <button class="carousel-btn" id="nextDress">&#10095;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+  <div class="section-inner">
+    <h2 class="section-title">Reviews</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        “So easy to book and the dress fit perfectly. Loved that I could see the size and length clearly before hiring.”
+        <div class="review-name">— Sarah, School Ball</div>
+      </div>
+      <div class="review-card">
+        “Auntie was so helpful with trying on different styles. I felt really special on the night and didn’t have to buy something I’d only wear once.”
+        <div class="review-name">— Mia, 21st Birthday</div>
+      </div>
+      <div class="review-card">
+        “Great range of sizes and colours. The whole process was simple and the dress was in perfect condition.”
+        <div class="review-name">— Emily, Wedding Guest</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <h2 class="section-title">About Auntie’s Clothing Hire</h2>
+    <div class="about-layout">
+      <div class="about-card">
+        <p>
+          <span class="about-highlight">Auntie’s Clothing Hire</span> is a Perth‑based clothing hire business focused on helping you feel special without the stress of buying a new outfit for every event.
+        </p>
+        <p>
+          With a curated collection of dresses in a range of sizes, colours, and styles, you can browse outfits, check details, and contact us directly to arrange your hire.
+        </p>
+        <p>
+          We believe in reducing clothing waste by re‑wearing beautiful pieces instead of letting them sit in the back of a wardrobe after one night.
+        </p>
+      </div>
+      <div class="about-card">
+        <p><span class="about-highlight">Why choose us?</span></p>
+        <ul style="padding-left:18px; margin:0;">
+          <li>Affordable hire compared to buying new.</li>
+          <li>Sizes and colours clearly displayed.</li>
+          <li>Real customer reviews and photos.</li>
+          <li>Friendly, personal service — you’re not just a booking number.</li>
+          <li>Reduce waste by hiring instead of buying.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <h2 class="section-title">Contact & Socials</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <p><strong>Bookings & enquiries</strong></p>
+        <p>Email: <a href="mailto:info@auntiesclothinghire.com">info@auntiesclothinghire.com</a></p>
+        <p>
+          Online bookings via Fresha:<br>
+          <a href="https://www.fresha.com/a/dusktilldawn-hire-retail-wandi-40-bodeman-road-qfuch5iu" target="_blank">
+            Click here to book on Fresha
+          </a>
+        </p>
+        <p>Location: Wandi, WA (exact address provided with booking).</p>
+      </div>
+      <div class="contact-card">
+        <p><strong>Socials</strong></p>
+        <div class="social-row">
+          <div class="social-pill">@auntiesclothinghire</div>
+          <div class="social-pill">Instagram</div>
+          <div class="social-pill">Facebook</div>
+        </div>
+        <p style="margin-top:14px; font-size:13px; color:var(--muted);">
+          Follow us for new arrivals, try‑on videos, and real customer photos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Auntie’s Clothing Hire — Perth, WA. All rights reserved.
+</footer>
+
+<script>
+// YEAR
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// DRESS CAROUSEL
+const track = document.querySelector(".carousel-track");
+const slides = Array.from(document.querySelectorAll(".carousel-item"));
+const prevBtn = document.getElementById("prevDress");
+const nextBtn = document.getElementById("nextDress");
+let currentIndex = 0;
+
+function updateCarousel() {
+  const width = slides[0].getBoundingClientRect().width;
+  track.style.transform = `translateX(-${currentIndex * width}px)`;
+}
+
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+});
+
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+});
+
+window.addEventListener("resize", updateCarousel);
+
+// Auto‑cycle every 6 seconds
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+}, 6000);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Auntie’s Clothing Hire</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+:root {
+  --primary: #D4AF37;
+  --dark: #0b0b0b;
+  --light: #ffffff;
+  --muted: #bbbbbb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, #222 0, #000 55%);
+  color: var(--light);
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 32px;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a {
+  color: var(--light);
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* LAYOUT HELPERS */
+.section {
+  padding: 60px 20px;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 28px;
+}
+
+/* HERO */
+.hero {
+  padding: 80px 20px 60px;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 34px;
+  margin: 0 0 14px;
+  color: var(--primary);
+}
+
+.hero-text h2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.hero-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  font-size: 14px;
+  color: var(--light);
+}
+
+.hero-bullets li::before {
+  content: "• ";
+  color: var(--primary);
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #000;
+  box-shadow: 0 0 18px rgba(212,175,55,0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 26px rgba(212,175,55,0.7);
+}
+
+.btn-outline:hover {
+  background: rgba(212,175,55,0.1);
+}
+
+.hero-image {
+  border-radius: 18px;
+  border: 1px solid rgba(212,175,55,0.5);
+  overflow: hidden;
+  position: relative;
+  min-height: 260px;
+  background: radial-gradient(circle at top, #333 0, #000 60%);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.1);
+}
+
+/* DRESSES CAROUSEL */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(212,175,55,0.4);
+  background: #111;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.carousel-item {
+ width:100%;
+ height:320px;
+ object-fit:cover;
+ border-radius: 12px;
+ border: 1px solidrgba(212,175,55,0.6);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(212,175,55,0.6);
+}
+
+.dress-info-title {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.dress-meta {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.dress-desc {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.6);
+  color: var(--primary);
+}
+
+.carousel-controls {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.carousel-btn {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.6);
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.7);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--primary);
+  margin: 0 10px;
+}
+
+/* REVIEWS */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.review-card {
+  background: rgba(10,10,10,0.9);
+  border-radius: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(212,175,55,0.3);
+  font-size: 14px;
+}
+
+.review-name {
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 13px;
+}
+
+/* ABOUT */
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.about-card {
+  background: rgba(10,10,10,0.9);
+  border-radius: 16px;
+  padding: 20px 22px;
+  border: 1px solid rgba(212,175,55,0.3);
+  font-size: 14px;
+}
+
+.about-highlight {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 26px;
+}
+
+.contact-card {
+  background: rgba(10,10,10,0.9);
+  border-radius: 16px;
+  padding: 20px 22px;
+  border: 1px solid rgba(212,175,55,0.3);
+  font-size: 14px;
+}
+
+.contact-card a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-pill {
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.5);
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 18px;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid rgba(212,175,55,0.25);
+  background: #050505;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-inner,
+  .carousel-item,
+  .about-layout,
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hero {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 10px 16px;
+  }
+  .hero-text h1 {
+    font-size: 26px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Auntie’s Clothing Hire</div>
+  <nav>
+    <a href="#dresses">Dresses</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Hire stunning outfits without the stress of DMs.</h1>
+      <h2>Affordable hire • Feel special • Reduce waste</h2>
+      <ul class="hero-bullets">
+        <li>Clear sizes, colours, and fit notes.</li>
+        <li>Real customer reviews so you know what to expect.</li>
+        <li>Reduce clothing waste by hiring, not buying.</li>
+      </ul>
+      <div class="hero-cta">
+        <a href="#dresses" class="btn btn-primary">Browse dresses</a>
+        <a href="#contact" class="btn btn-outline">Contact & bookings</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <!-- Replace hero.jpg with your own hero image in the same folder -->
+      <img src="hero.jpg" alt="Elegant dress and heels">
+    </div>
+  </div>
+</section>
+
+<!-- DRESSES CAROUSEL -->
+<section class="section" id="dresses">
+  <div class="section-inner">
+    <h2 class="section-title">Featured Dresses</h2>
+
+    <div class="carousel" id="dressCarousel">
+      <div class="carousel-track">
+        <!-- Slide 1 -->
+        <div class="carousel-item">
+          <img src="Screenshot 2026-05-21 180018.png"alt="Blush Satin Gown">
+          <div>
+            <div class="dress-info-title">Blush Satin Gown</div>
+            <div class="dress-meta">Sizes: 8–12 • Perfect for: School balls, formal events</div>
+            <p class="dress-desc">
+              A soft blush satin gown with a flattering drape and subtle shine. Ideal for formal events where you want to feel elegant but comfortable.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Blush</span>
+              <span class="tag">Formal</span>
+              <span class="tag">Floor length</span>
+            </div>
+            <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Enquire about this dress
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <img src="dresses/dress2.jpg" alt="Emerald Wrap Dress">
+          <div>
+            <div class="dress-info-title">Emerald Wrap Dress</div>
+            <div class="dress-meta">Sizes: 10–16 • Perfect for: Weddings, cocktail nights</div>
+            <p class="dress-desc">
+              A rich emerald wrap dress that suits a range of body types. Adjustable waist tie and floaty skirt make it a go‑to for weddings and special dinners.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Emerald</span>
+              <span class="tag">Midi</span>
+              <span class="tag">Wrap style</span>
+            </div>
+            <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Enquire about this dress
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <img src="dresses/dress3.jpg" alt="Black Satin Slip">
+          <div>
+            <div class="dress-info-title">Black Satin Slip</div>
+            <div class="dress-meta">Sizes: 6–14 • Perfect for: Birthdays, nights out</div>
+            <p class="dress-desc">
+              A classic black satin slip that can be dressed up or down. Pair with heels and jewellery for a timeless, effortless look.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Black</span>
+              <span class="tag">Slip</span>
+              <span class="tag">Versatile</span>
+            </div>
+            <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Enquire about this dress
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevDress">&#10094;</button>
+        <button class="carousel-btn" id="nextDress">&#10095;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+  <div class="section-inner">
+    <h2 class="section-title">Reviews</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        “So easy to book and the dress fit perfectly. Loved that I could see the size and length clearly before hiring.”
+        <div class="review-name">— Sarah, School Ball</div>
+      </div>
+      <div class="review-card">
+        “Auntie was so helpful with trying on different styles. I felt really special on the night and didn’t have to buy something I’d only wear once.”
+        <div class="review-name">— Mia, 21st Birthday</div>
+      </div>
+      <div class="review-card">
+        “Great range of sizes and colours. The whole process was simple and the dress was in perfect condition.”
+        <div class="review-name">— Emily, Wedding Guest</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <h2 class="section-title">About Auntie’s Clothing Hire</h2>
+    <div class="about-layout">
+      <div class="about-card">
+        <p>
+          <span class="about-highlight">Auntie’s Clothing Hire</span> is a Perth‑based clothing hire business focused on helping you feel special without the stress of buying a new outfit for every event.
+        </p>
+        <p>
+          With a curated collection of dresses in a range of sizes, colours, and styles, you can browse outfits, check details, and contact us directly to arrange your hire.
+        </p>
+        <p>
+          We believe in reducing clothing waste by re‑wearing beautiful pieces instead of letting them sit in the back of a wardrobe after one night.
+        </p>
+      </div>
+      <div class="about-card">
+        <p><span class="about-highlight">Why choose us?</span></p>
+        <ul style="padding-left:18px; margin:0;">
+          <li>Affordable hire compared to buying new.</li>
+          <li>Sizes and colours clearly displayed.</li>
+          <li>Real customer reviews and photos.</li>
+          <li>Friendly, personal service — you’re not just a booking number.</li>
+          <li>Reduce waste by hiring instead of buying.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <h2 class="section-title">Contact & Socials</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <p><strong>Bookings & enquiries</strong></p>
+        <p>Email: <a href="mailto:info@auntiesclothinghire.com">info@auntiesclothinghire.com</a></p>
+        <p>
+          Online bookings via Fresha:<br>
+          <a href="https://www.fresha.com/a/dusktilldawn-hire-retail-wandi-40-bodeman-road-qfuch5iu" target="_blank">
+            Click here to book on Fresha
+          </a>
+        </p>
+        <p>Location: Wandi, WA (exact address provided with booking).</p>
+      </div>
+      <div class="contact-card">
+        <p><strong>Socials</strong></p>
+        <div class="social-row">
+          <div class="social-pill">@auntiesclothinghire</div>
+          <div class="social-pill">Instagram</div>
+          <div class="social-pill">Facebook</div>
+        </div>
+        <p style="margin-top:14px; font-size:13px; color:var(--muted);">
+          Follow us for new arrivals, try‑on videos, and real customer photos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Auntie’s Clothing Hire — Perth, WA. All rights reserved.
+</footer>
+
+<script>
+// YEAR
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// DRESS CAROUSEL
+const track = document.querySelector(".carousel-track");
+const slides = Array.from(document.querySelectorAll(".carousel-item"));
+const prevBtn = document.getElementById("prevDress");
+const nextBtn = document.getElementById("nextDress");
+let currentIndex = 0;
+
+function updateCarousel() {
+  const width = slides[0].getBoundingClientRect().width;
+  track.style.transform = `translateX(-${currentIndex * width}px)`;
+}
+
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+});
+
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+});
+
+window.addEventListener("resize", updateCarousel);
+
+// Auto‑cycle every 6 seconds
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+}, 6000);
+</script>
+
 </body>
 </html>
