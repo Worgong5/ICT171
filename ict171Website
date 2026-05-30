@@ -217,17 +217,21 @@
         }
 
         .carousel-img-wrap {
-            width: 100%;
-            height: 360px;
-            overflow: hidden;
-        }
+    width: 100%;
+    height: 550px; /* adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    background:transparent;
+}
 
-        .carousel-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+.carousel-img-wrap img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
 
         .carousel-caption {
             padding: 14px 10px 4px;
@@ -305,18 +309,22 @@
         }
 
         .dress-img-wrap {
-            width: 100%;
-            height: 260px;
-            overflow: hidden;
-            border-radius: 12px;
-        }
+    width: 100%;
+    height: 325px; /* adjust this number to your liking */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+    background: transparent;
+}
 
-        .dress-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+.dress-img-wrap img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
 
         .dress-info {
             padding: 10px 4px 4px;
@@ -357,12 +365,16 @@
             height: 260px;
             overflow: hidden;
             border-radius: 12px;
-        }
+ 	    background:transparent;
+	    justify-content: center;
+	    align-content:center;
+	    display:flex
+       }
 
         .tryon-img-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
         }
 
@@ -458,13 +470,13 @@
             <div class="logo-circle"></div>
             <div>
                 <div class="logo-text-main">Elegance Hire</div>
-                <div class="logo-text-sub">Perth • Dress Hire</div>
+                <div class="logo-text-sub">Perth â€¢ Dress Hire</div>
             </div>
         </div>
         <nav class="nav-links">
             <a href="#hero">Home</a>
             <a href="#gallery">Dresses</a>
-            <a href="#tryons">Customer Try‑Ons</a>
+            <a href="#tryons">Customer Tryâ€‘Ons</a>
             <a href="#reviews">Reviews</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -474,12 +486,12 @@
     <section id="hero" class="hero">
         <div class="hero-copy">
             <h1>Luxury dress hire<br>for nights that matter.</h1>
-            <p>Modern, body‑hugging silhouettes, soft satins and sequins that catch the light. Try‑ons, pick‑ups and returns in Perth.</p>
+            <p>Modern, bodyâ€‘hugging silhouettes, soft satins and sequins that catch the light. Tryâ€‘ons, pickâ€‘ups and returns in Perth.</p>
 
             <div class="hero-badges">
-                <div class="badge">Sizes 4–16</div>
-                <div class="badge">Ball • Formal • Events</div>
-                <div class="badge">Customer try‑ons available</div>
+                <div class="badge">Sizes 4â€“16</div>
+                <div class="badge">Ball â€¢ Formal â€¢ Events</div>
+                <div class="badge">Customer tryâ€‘ons available</div>
             </div>
 
             <div class="hero-cta">
@@ -492,7 +504,7 @@
             </div>
 
             <div class="hero-meta">
-                Based in Perth, WA • DM on Instagram for sizing, try‑ons and bookings.
+                Based in Perth, WA â€¢ DM on Instagram for sizing, tryâ€‘ons and bookings.
             </div>
         </div>
 
@@ -502,41 +514,41 @@
                     <!-- Slide 1 -->
                     <div class="carousel-item">
                         <div class="carousel-img-wrap">
-                            <img src="dress1.jpg" alt="Gold Sequin Gown">
+                            <img src="dress3.png" alt="Rust One Shoulder Maxi Dress">
                         </div>
                         <div class="carousel-caption">
-                            <h3>Gold Sequin Gown</h3>
-                            <p>Size 8 • Curve‑hugging, full‑length shimmer.</p>
+                            <h3>Rust One Shoulder </h3>
+                            <p>Size 8 â€¢ Curveâ€‘hugging, fullâ€‘length shimmer.</p>
                         </div>
                     </div>
                     <!-- Slide 2 -->
                     <div class="carousel-item">
                         <div class="carousel-img-wrap">
-                            <img src="dress2.jpg" alt="Black Satin Slip">
+                            <img src="dress4.png" alt="Chocolate tone sleek high neck maxi dress">
                         </div>
-                        <div class="carousel-caption">
+                        <div class="Chocolate tone sleek high neck  maxi dress">
                             <h3>Black Satin Slip</h3>
-                            <p>Size 10 • Minimal, sexy, open‑back satin.</p>
+                            <p>Size 10 â€¢ Minimal, sexy, openâ€‘back satin.</p>
                         </div>
                     </div>
                     <!-- Slide 3 -->
                     <div class="carousel-item">
                         <div class="carousel-img-wrap">
-                            <img src="dress3.jpg" alt="Silver Evening Dress">
+                            <img src="dress5.png" alt="Silver Evening Dress">
                         </div>
                         <div class="carousel-caption">
-                            <h3>Silver Evening Dress</h3>
-                            <p>Size 6 • Soft metallic with side split.</p>
+                            <h3>Chocolate Floral Dress</h3>
+                            <p>Size 6 â€¢ Soft metallic with side split.</p>
                         </div>
                     </div>
                     <!-- Slide 4 -->
                     <div class="carousel-item">
                         <div class="carousel-img-wrap">
-                            <img src="dress4.jpg" alt="Champagne Luxe Dress">
+                            <img src="dress6.png" alt="Champagne Luxe Dress">
                         </div>
                         <div class="carousel-caption">
-                            <h3>Champagne Luxe Dress</h3>
-                            <p>Size 8 • Romantic champagne tone, fitted bodice.</p>
+                            <h3>Powder Blue Lace Waist Gown</h3>
+                            <p>Size 8 â€¢ Romantic champagne tone, fitted bodice.</p>
                         </div>
                     </div>
                 </div>
@@ -564,41 +576,41 @@
         <div class="gallery-grid">
             <div class="dress-card">
                 <div class="dress-img-wrap">
-                    <img src="dress1.jpg" alt="Gold Sequin Gown">
+                    <img src="dress3.png" alt="Gold Sequin Gown">
                 </div>
                 <div class="dress-info">
-                    <h3>Gold Sequin Gown</h3>
-                    <div class="dress-meta">Size 8 • $80 hire • Full‑length, open back</div>
+                    <h3>Rust One Shoulder</h3>
+                    <div class="dress-meta">Size 8 â€¢ $80 hire â€¢ Fullâ€‘length, open back</div>
                 </div>
             </div>
 
             <div class="dress-card">
                 <div class="dress-img-wrap">
-                    <img src="dress2.jpg" alt="Black Satin Slip">
+                    <img src="dress4.png" alt="Black Satin Slip">
                 </div>
                 <div class="dress-info">
-                    <h3>Black Satin Slip</h3>
-                    <div class="dress-meta">Size 10 • $70 hire • Bias‑cut satin</div>
+                    <h3>Sleek Chocolate Tone Maxi Dress</h3>
+                    <div class="dress-meta">Size 10 â€¢ $70 hire â€¢ Biasâ€‘cut satin</div>
                 </div>
             </div>
 
             <div class="dress-card">
                 <div class="dress-img-wrap">
-                    <img src="dress3.jpg" alt="Silver Evening Dress">
+                    <img src="dress5.png" alt="Silver Evening Dress">
                 </div>
                 <div class="dress-info">
-                    <h3>Silver Evening Dress</h3>
-                    <div class="dress-meta">Size 6 • $75 hire • Metallic, side split</div>
+                    <h3>Chocolate Floral Dress</h3>
+                    <div class="dress-meta">Size 6 â€¢ $75 hire â€¢ Metallic, side split</div>
                 </div>
             </div>
 
             <div class="dress-card">
                 <div class="dress-img-wrap">
-                    <img src="dress4.jpg" alt="Champagne Luxe Dress">
+                    <img src="dress6.png" alt="Champagne Luxe Dress">
                 </div>
                 <div class="dress-info">
-                    <h3>Champagne Luxe Dress</h3>
-                    <div class="dress-meta">Size 8 • $85 hire • Soft champagne tone</div>
+                    <h3>Powder Blue Lace Waist Gown</h3>
+                    <div class="dress-meta">Size 8 â€¢ $85 hire â€¢ Soft champagne tone</div>
                 </div>
             </div>
         </div>
@@ -606,30 +618,30 @@
 
     <!-- CUSTOMER TRY-ONS -->
     <section id="tryons" class="section tryons">
-        <h2 class="section-title">Customer try‑ons</h2>
+        <h2 class="section-title">Customer tryâ€‘ons</h2>
         <p class="section-subtitle">Real girls, real events. Showcase your look here after your hire.</p>
 
         <div class="tryon-grid">
             <!-- Replace these with real try-on photos later -->
             <div class="tryon-card">
                 <div class="tryon-img-wrap">
-                    <img src="tryon1.jpg" alt="Customer try-on 1">
+                    <img src="client1.png" alt="Customer try-on 1">
                 </div>
-                <div class="tryon-caption">Gold Sequin Gown • Ball night • Perth</div>
+                <div class="tryon-caption">White Corsetâ€¢ Night Out â€¢ Perth</div>
             </div>
 
             <div class="tryon-card">
                 <div class="tryon-img-wrap">
-                    <img src="tryon2.jpg" alt="Customer try-on 2">
+                    <img src="client2.png" alt="Customer try-on 2">
                 </div>
-                <div class="tryon-caption">Black Satin Slip • Birthday dinner</div>
+                <div class="tryon-caption">Sparkling Dress â€¢ Try on Session</div>
             </div>
 
             <div class="tryon-card">
                 <div class="tryon-img-wrap">
-                    <img src="tryon3.jpg" alt="Customer try-on 3">
+                    <img src="client3.png" alt="Customer try-on 3">
                 </div>
-                <div class="tryon-caption">Champagne Luxe Dress • Engagement party</div>
+                <div class="tryon-caption">Pink Dress School Ball</div>
             </div>
         </div>
     </section>
@@ -637,20 +649,20 @@
     <!-- REVIEWS -->
     <section id="reviews" class="section reviews">
         <h2 class="section-title">Reviews</h2>
-        <p class="section-subtitle">A few words from girls who’ve already hired and loved their dresses.</p>
+        <p class="section-subtitle">A few words from girls whoâ€™ve already hired and loved their dresses.</p>
 
         <div class="reviews-row">
             <div class="review-card">
-                “The dress fit perfectly and looked even better in person. So easy to pick up and return.”
-                <div class="review-name">— Sarah, ball hire</div>
+                â€œThe dress fit perfectly and looked even better in person. So easy to pick up and return.â€
+                <div class="review-name">â€” Sarah, ball hire</div>
             </div>
             <div class="review-card">
-                “Loved the black satin slip, super flattering and comfy. Got so many compliments.”
-                <div class="review-name">— Mia, birthday</div>
+                â€œLoved the black satin slip, super flattering and comfy. Got so many compliments.â€
+                <div class="review-name">â€” Mia, birthday</div>
             </div>
             <div class="review-card">
-                “Communication was amazing and the dress was spotless. Will definitely hire again.”
-                <div class="review-name">— Emily, formal</div>
+                â€œCommunication was amazing and the dress was spotless. Will definitely hire again.â€
+                <div class="review-name">â€” Emily, formal</div>
             </div>
         </div>
     </section>
@@ -658,7 +670,7 @@
     <!-- CONTACT -->
     <section id="contact" class="section contact">
         <h2 class="section-title">Contact & bookings</h2>
-        <p class="section-subtitle">Send through your date, size and the dress you’re interested in. We’ll confirm availability and try‑on times.</p>
+        <p class="section-subtitle">Send through your date, size and the dress youâ€™re interested in. Weâ€™ll confirm availability and tryâ€‘on times.</p>
 
         <div class="contact-grid">
             <div>
@@ -672,7 +684,7 @@
                 </div>
                 <div class="contact-item">
                     <span>Location</span><br>
-                    Perth, WA • Exact address provided on booking
+                    Perth, WA â€¢ Exact address provided on booking
                 </div>
             </div>
 
@@ -680,15 +692,15 @@
                 <strong>How it works</strong><br><br>
                 1. Browse the dresses and pick a style you love.<br>
                 2. DM or email with your date, size and dress name.<br>
-                3. Optional try‑on before your event date.<br>
-                4. Pick up, wear, return — we handle the cleaning.<br><br>
-                For last‑minute hires, please mention your event date in the first message.
+                3. Optional tryâ€‘on before your event date.<br>
+                4. Pick up, wear, return â€” we handle the cleaning.<br><br>
+                For lastâ€‘minute hires, please mention your event date in the first message.
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        © Elegance Hire — Perth Dress Hire. All imagery and content owned by the business.
+        Â© Elegance Hire â€” Perth Dress Hire. All imagery and content owned by the business.
     </footer>
 </div>
 
